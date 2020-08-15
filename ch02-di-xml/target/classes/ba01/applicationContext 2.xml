@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--声明Student对象-->
+    <bean id="myStudent" class="com.sunyun.ba01.Student">
+        <property name="name" value="孙昀"></property>
+<!--setName("xx")-->
+        <property name="age" value="22"></property>
+<!--        value int类型还是要加引号  ，所有值必须放在引号中 ，spring的规则  -->
+        <property name="email" value="66666@qq.com"></property>
+<!--只找set方法，没有setEmail 就会报错   -->
+    </bean>
+
+    <bean id="mydate" class="java.util.Date">
+        <property name="time" value="19980107"></property><!-- Date类中有setTime方法-->
+    </bean>
+
+
+
+<!--    给属性赋值
+简单类型：spring中规定java中的基本数据类型和String都是简单类型
+set注入（设值注入的意思）：spring调用set方法，你可以在set方法中完成属性赋值
+简单set注入:
+<bean id="xx" class="xx">
+    <property name="属性名字" value="属性的值" />
+    一个property只能给一个属性赋值
+    <property .....>
+</bean>
+di：给属性赋值    -->
+
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.sunyun.controller.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/reg</url-pattern>
+    </servlet-mapping>
+
+    <!--注册spring框架提供的监听器
+        在监听器启动的时候，会寻找/WEB-INF/applicatoinContext.xml，为什么找这个文件？
+        在监听器的初始方法中，会创建spring的容器对象， 在创建容器对象时，需要读取配置文件
+        监听器默认是找/WEB-INF/applicatoinContext.xml。
+    -->
+    <!--自定义spring配置文件的位置和名称-->
+<!--    配置监听器：目的是创建容器对象，创建类容器对象，就能把spring.xml配置文件中所有的对象都创建好
+        用户发请求就可以直接使用对象类
+-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring.xml</param-value>
+    </context-param>
+    <!--监听器-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+</web-app>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunyun.dao.StudentDao">
+    <insert id="insertStudent">
+        insert into student values(#{id},#{name},#{email},#{age})
+    </insert>
+
+    <select id="selectStudents" resultType="com.sunyun.domain.Student">
+        select id,name,email,age from student order by age asc ;
+
+    </select>
+
+</mapper>
+<!--SQL语言的默认排序方式是升序，ORDER BY 子句若未显式指定升序(ASC)或降序(DESC)，那么就认按默认升序排序。
+例如下列语句为默认按升序排序
+select * from t1 order by col1;
+它与下列语句等效
+select * from t1 order by col1 asc;-->
